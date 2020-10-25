@@ -6,7 +6,7 @@ from sys import maxsize
 
 
 def max_A(A):
-    m = -1*maxsize
+    m = -1 * maxsize
     for i in range(len(A)):
         m = max(m, float(A[i][2]))
     return m
