@@ -111,6 +111,10 @@ def __VAM__(matrix):
 
 
 def __MODI__(matrix, ibfs):
+    '''
+    Modified Distribution method to find optimal solution of Transportation Problem
+    given cost matrix and initial basic feasible solution founded by VAM method 
+    '''
     m = len(matrix)
     n = len(matrix[0])
 
