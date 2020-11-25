@@ -174,16 +174,29 @@ def __MODI__(matrix, ibfs):
                         v[j] = item[0] - u[i]
                     elif v[j] != -999999 and u[i] == -999999:
                         u[i] = item[0] - v[j]
-    print(u)
-    print(v)
+    # print(u)
+    # print(v)
 
-    non_basic_vars = []
+    delta = []
     for i in range(m):
         for j in range(n):
             item = new_mat[i][j]
             if not item[2]:
-                non_basic_vars.append((u[i] + v[j] - item[0], i, j))
-    print(non_basic_vars)
+                delta.append((item[0] - u[i] - v[j], i, j))
+
+    # print(delta)
+    mind, r, c = delta[0][0], 0, 0
+    for t in delta:
+        if mind > t[0]:
+            mind = t[0]
+            r = t[1]
+            c = t[2]
+
+    if mind >= 0:
+        # break
+        print('Whoo! We have found the optimal solution')
+    if mind < 0:
+        print('Shit! This was not the Optimal solution')
 
 
 if __name__ == '__main__':
